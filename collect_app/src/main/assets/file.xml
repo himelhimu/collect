@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>2.23 Provide Supportive Care to Sick Newborn</h:title>
+    <model>
+      <instance>
+        <session_23_chap_2_en id="twentythree_session_second_chapter_en">
+          <formhub>
+            <uuid/>
+          </formhub>
+          <chapter1/>
+          <s23_q1/>
+          <s23_q2/>
+          <s23_q3/>
+          <scoreEng/>
+          <score/>
+          <start/>
+          <end/>
+          <username/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </session_23_chap_2_en>
+      </instance>
+      <bind nodeset="/session_23_chap_2_en/chapter1" type="select1"/>
+      <bind constraint=".='t'" jr:constraintMsg="উত্তর ভুল" nodeset="/session_23_chap_2_en/s23_q1" required="true()" type="select1"/>
+      <bind constraint=".='t'" jr:constraintMsg="উত্তর ভুল" nodeset="/session_23_chap_2_en/s23_q2" required="true()" type="select1"/>
+      <bind constraint=".='t'" jr:constraintMsg="উত্তর ভুল" nodeset="/session_23_chap_2_en/s23_q3" required="true()" type="select1"/>
+      <bind calculate="if( /session_23_chap_2_en/s23_q1  = 't',1,0) + if( /session_23_chap_2_en/s23_q2  = 't',1,0) + if( /session_23_chap_2_en/s23_q3  = 't',1,0)" nodeset="/session_23_chap_2_en/scoreEng" type="string"/>
+      <bind nodeset="/session_23_chap_2_en/score" readonly="true()" type="string"/>
+      <bind jr:preload="timestamp" jr:preloadParams="start" nodeset="/session_23_chap_2_en/start" type="dateTime"/>
+      <bind jr:preload="timestamp" jr:preloadParams="end" nodeset="/session_23_chap_2_en/end" type="dateTime"/>
+      <bind jr:preload="property" jr:preloadParams="username" nodeset="/session_23_chap_2_en/username" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/session_23_chap_2_en/meta/instanceID" readonly="true()" type="string"/>
+      <bind calculate="'cb4bbc25cc2f496e9625471f120380a7'" nodeset="/session_23_chap_2_en/formhub/uuid" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <select1 appearance="html" ref="/session_23_chap_2_en/chapter1">
+      <label>Chapter 2</label>
+      <item>
+        <label>session_twentythree.html</label>
+        <value>h</value>
+      </item>
+    </select1>
+    <select1 appearance="button" ref="/session_23_chap_2_en/s23_q1">
+      <label>1. What are the indication for managing a baby with IV fluid?</label>
+      <item>
+        <label>Temperature is 35.5–36.5°C (95.9–97.7°F)</label>
+        <value>ff</value>
+      </item>
+      <item>
+        <label>Unconscious, Lethergic</label>
+        <value>t</value>
+      </item>
+      <item>
+        <label>Central cyanosis</label>
+        <value>f</value>
+      </item>
+    </select1>
+    <select1 appearance="button" ref="/session_23_chap_2_en/s23_q2">
+      <label>2.Which statement is correct?</label>
+      <item>
+        <label>First 2 days of life give 10% glucose IV if the baby need IV fluid</label>
+        <value>t</value>
+      </item>
+      <item>
+        <label>Suitable alternative IV fluid after first 2 days are half normal saline &amp; 6% dexrose</label>
+        <value>f</value>
+      </item>
+      <item>
+        <label>Do not exceed 80 ml/kg/day IV fluid when the baby get IV fluid</label>
+        <value>ff</value>
+      </item>
+    </select1>
+    <select1 appearance="button" ref="/session_23_chap_2_en/s23_q3">
+      <label>3. Oxygen therapy with a pulse oximeter can be discontinued if:</label>
+      <item>
+        <label>Baby can maintain saturation &gt;85% in room air</label>
+        <value>f</value>
+      </item>
+      <item>
+        <label>Baby can maintain saturation &gt;90% in room air</label>
+        <value>t</value>
+      </item>
+      <item>
+        <label>Baby can maintain saturation &gt;95% in room air</label>
+        <value>ff</value>
+      </item>
+    </select1>
+    <input ref="/session_23_chap_2_en/score">
+      <label>Your Score
+
+<output value=" /session_23_chap_2_en/scoreEng "/>/3</label>
+    </input>
+  </h:body>
+</h:html>

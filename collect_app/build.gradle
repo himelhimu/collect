@@ -190,6 +190,8 @@ dependencies {
     compile('com.google.apis:google-api-services-sheets:v4-rev463-1.22.0') {
         exclude group: 'org.apache.httpcomponents'
     }
+    compile 'com.jakewharton:butterknife:8.6.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
     compile 'com.jakewharton.timber:timber:4.5.1'
     compile 'com.android.support:customtabs:25.3.1'
     compile 'com.android.support:design:25.3.1'
